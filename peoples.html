@@ -1,0 +1,22 @@
+<form action="/cgi-bin/formTableListener.py" method="post">
+<div style="float: right; margin: 10 50 10 0;">
+    <input type="submit" value="Добавить" name="addButton">
+    <input type="submit" value="Импорт данных из PDF" name="importPdfButton">
+    <input type="submit" value="Экспортировать таблицу в PDF" name="exportPdfButton">
+    <input type="submit" value="Экспортировать таблицу в Excel" name="exportExcelButton">
+</div>
+<table border="1" width="100%" style="text-align: center;">
+    <thead bgcolor="#ffcc00">
+        <tr>
+            <td>Фамилия</td>
+            <td>Имя</td>
+            <td>Отчество</td>
+            <td>Регион</td>
+            <td>Город</td>
+            <td>Телефон</td>
+            <td>Почта</td>
+        </tr>
+    </thead>
+    <tbody>{}</tbody>
+</table>
+</form>
