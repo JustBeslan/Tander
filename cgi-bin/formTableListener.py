@@ -123,7 +123,7 @@ elif 'exportExcelButton' in form:  # Если нажата кнопка "Экс�
         tablePeoples["Telephone"].append(telephone)
         tablePeoples["E-mail"].append(email)
     dataFrame = pd.DataFrame(tablePeoples)
-    dataFrame.to_excel("../Peoples.xlsx")  # Записываем таблицу в файл с именем Peoples.xlsx в директорию проекта
+    dataFrame.to_excel("Peoples.xlsx")  # Записываем таблицу в файл с именем Peoples.xlsx в директорию проекта
     print('''
         <head>
             <meta charset="utf-8">
@@ -184,7 +184,7 @@ elif 'importPdfButton' in form:     # Если нажата кнопка "Имп
     ''')  # Уведомляем пользователя о том, что данные уже добавлены и возвращаемя обратно к таблице
 elif 'exportPdfButton' in form:     # Если нажата кнопка "Экспортировать таблицу в PDF"
     newPdf = FPDF()                 # Создаем pdf и добавляем шрифт для записи русских символов
-    newPdf.add_font('Athena', '', '../font/new_athena_unicode.ttf', uni=True)
+    newPdf.add_font('Athena', '', 'font/new_athena_unicode.ttf', uni=True)
     cursor = db.cursor()  # Создаем курсор перед выполением запроса
     cursor.execute('''
         SELECT p.surname, p.name, p.patronymic, r.region, c.city, p.telephone, p.email FROM peoples p
@@ -214,7 +214,7 @@ elif 'exportPdfButton' in form:     # Если нажата кнопка "Экс
             newPdf.cell(0, 10, txt="Телефон +7{}".format(person[5]), ln=1, align="C")   # Если указан телефон, то добавляем в резюме
         if person[6] != '-':
             newPdf.cell(0, 10, txt="Почта {}".format(person[6]), ln=1, align="C")       # Если указана почта, то добавляем в резюме
-    newPdf.output("../Peoples.pdf")         # Сохраняем все сформированные данные в файле pdf
+    newPdf.output("Peoples.pdf")         # Сохраняем все сформированные данные в файле pdf
     print('''
     <head>
         <meta charset="utf-8">
